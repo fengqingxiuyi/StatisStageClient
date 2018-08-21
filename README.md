@@ -1,3 +1,3 @@
 # StatisStageClient
 
-平台统计客户端
+统计平台客户端
