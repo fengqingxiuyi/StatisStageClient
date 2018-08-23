@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ProgressBar
+        style="@android:style/Widget.ProgressBar.Small.Inverse"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:background="@android:color/transparent"
+        android:indeterminateDrawable="@drawable/view_loading_bar"
+        android:indeterminateDuration="500" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/view_loading_txt" />
+
+</FrameLayout>
