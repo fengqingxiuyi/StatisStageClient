@@ -1,5 +1,7 @@
 package com.fqxyi.statisstageclient.module.clicknum.bean;
 
+import java.util.List;
+
 /**
  * @author ShenBF
  * @描述: ClickNumBean
@@ -7,6 +9,18 @@ package com.fqxyi.statisstageclient.module.clicknum.bean;
  */
 public class ClickNumBean {
 
-    //do nothing
+    public int resultCode;
+    public String resultMessage;
+    public DataBean data;
+
+    public static class DataBean {
+        public String name;
+        public List<DateBeanBean> dateBean;
+
+        public static class DateBeanBean {
+            public String date;
+            public int num;
+        }
+    }
 
 }

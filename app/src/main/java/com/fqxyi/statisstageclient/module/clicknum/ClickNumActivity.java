@@ -9,6 +9,7 @@ import com.fqxyi.network.bean.ErrorBean;
 import com.fqxyi.network.callback.IResponseCallback;
 import com.fqxyi.network.tag.ReqTag;
 import com.fqxyi.statisstageclient.R;
+import com.fqxyi.statisstageclient.common.util.GsonUtil;
 import com.fqxyi.statisstageclient.common.util.ToastUtils;
 import com.fqxyi.statisstageclient.common.view.LoadingView;
 import com.fqxyi.statisstageclient.module.clicknum.bean.ClickNumApiService;
@@ -42,12 +43,13 @@ public class ClickNumActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
                         hideLoading();
+                        ToastUtils.toast("response = " + GsonUtil.GsonToString(response));
                     }
 
                     @Override
                     public void onError(ReqTag reqTag, ErrorBean errorBean) {
                         hideLoading();
-                        ToastUtils.toast("errorBean.toString() = " + errorBean.toString());
+                        ToastUtils.toast("errorBean = " + GsonUtil.GsonToString(errorBean));
                     }
                 }
         );
@@ -61,12 +63,13 @@ public class ClickNumActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
                         hideLoading();
+                        ToastUtils.toast("response = " + GsonUtil.GsonToString(response));
                     }
 
                     @Override
                     public void onError(ReqTag reqTag, ErrorBean errorBean) {
                         hideLoading();
-                        ToastUtils.toast("errorBean.toString() = " + errorBean.toString());
+                        ToastUtils.toast("errorBean = " + GsonUtil.GsonToString(errorBean));
                     }
                 }
         );
@@ -80,12 +83,13 @@ public class ClickNumActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
                         hideLoading();
+                        ToastUtils.toast("response = " + GsonUtil.GsonToString(response));
                     }
 
                     @Override
                     public void onError(ReqTag reqTag, ErrorBean errorBean) {
                         hideLoading();
-                        ToastUtils.toast("errorBean.toString() = " + errorBean.toString());
+                        ToastUtils.toast("errorBean = " + GsonUtil.GsonToString(errorBean));
                     }
                 }
         );
