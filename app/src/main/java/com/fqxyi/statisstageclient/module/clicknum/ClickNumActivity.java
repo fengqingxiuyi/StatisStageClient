@@ -3,6 +3,8 @@ package com.fqxyi.statisstageclient.module.clicknum;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import com.fqxyi.network.RequestManager;
 import com.fqxyi.network.bean.ErrorBean;
@@ -22,8 +24,8 @@ import com.fqxyi.statisstageclient.module.clicknum.bean.ClickNumBean;
  */
 public class ClickNumActivity extends AppCompatActivity {
 
-    private static final String NAME_CLICK_NUM = "NAME_CLICK_NUM";
-
+    //findView
+    WebView webView;
     //loading
     LoadingView loading;
 
@@ -31,14 +33,23 @@ public class ClickNumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_num);
+        //findView
+        webView = findViewById(R.id.web_view);
+        WebSettings webSettings = webView.getSettings();
+        //设置与Js交互的权限
+        webSettings.setJavaScriptEnabled(true);
+        //设置加载进来的页面自适应手机屏幕
+        webSettings.setUseWideViewPort(true);
+        webSettings.setLoadWithOverviewMode(true);
+        webView.loadUrl("http://vue.fqxyi.com/statisstagefe/");
         //loading
         loading = new LoadingView(this);
     }
 
-    public void setClickNum(View view) {
+    public void setEventOne(View view) {
         showLoading();
         RequestManager.get().async(
-                RequestManager.get().create(ClickNumApiService.class).set(NAME_CLICK_NUM),
+                RequestManager.get().create(ClickNumApiService.class).set("事件1"),
                 new IResponseCallback<ClickNumBean>() {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
@@ -55,10 +66,10 @@ public class ClickNumActivity extends AppCompatActivity {
         );
     }
 
-    public void getClickNum(View view) {
+    public void setEventTwo(View view) {
         showLoading();
         RequestManager.get().async(
-                RequestManager.get().create(ClickNumApiService.class).get(NAME_CLICK_NUM),
+                RequestManager.get().create(ClickNumApiService.class).set("事件2"),
                 new IResponseCallback<ClickNumBean>() {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
@@ -75,10 +86,10 @@ public class ClickNumActivity extends AppCompatActivity {
         );
     }
 
-    public void delClickNum(View view) {
+    public void setEventThree(View view) {
         showLoading();
         RequestManager.get().async(
-                RequestManager.get().create(ClickNumApiService.class).del(NAME_CLICK_NUM),
+                RequestManager.get().create(ClickNumApiService.class).set("事件3"),
                 new IResponseCallback<ClickNumBean>() {
                     @Override
                     public void onSuccess(ReqTag reqTag, ClickNumBean response) {
@@ -93,6 +104,13 @@ public class ClickNumActivity extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    /**
+     * 刷新WebView
+     */
+    public void refresh(View view) {
+        webView.reload();
     }
 
     private void showLoading() {

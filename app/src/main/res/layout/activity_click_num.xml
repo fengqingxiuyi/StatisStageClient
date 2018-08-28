@@ -4,28 +4,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="setClickNum"
-        android:text="设置埋点统计"
+        android:text="统计埋点事件"
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="getClickNum"
-        android:text="获取埋点统计"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:layout_height="wrap_content">
 
-    <Button
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="setEventOne"
+            android:text="事件1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="setEventTwo"
+            android:text="事件2"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="setEventThree"
+            android:text="事件3"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="refresh"
+            android:text="刷新页面"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="delClickNum"
-        android:text="删除埋点统计"
-        android:textColor="@android:color/black"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
